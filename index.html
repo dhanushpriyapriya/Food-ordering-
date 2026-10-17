@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>🍔 Food Ordering Website</h1>
+        <p>Delicious food delivered to your door</p>
+
+        <button class="dark-btn" onclick="toggleDarkMode()">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text"
+               id="searchInput"
+               placeholder="🔍 Search food..."
+               onkeyup="searchFood()">
+    </div>
+
+    <!-- Food Container -->
+    <section class="food-container">
+
+        <!-- Pizza -->
+        <div class="food-card">
+            <span class="badge">🔥 Popular</span>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza">
+            <h2>🍕 Pizza</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹200</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Pizza',200)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Burger -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Burger">
+            <h2>🍔 Burger</h2>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <p class="price">₹120</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Burger',120)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Chicken Biryani -->
+        <div class="food-card">
+            <span class="badge">🔥 Best Seller</span>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400" alt="Chicken Biryani">
+            <h2>🍛 Chicken Biryani</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹250</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Chicken Biryani',250)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Shawarma -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400" alt="Shawarma">
+            <h2>🌯 Shawarma</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹170</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Shawarma',170)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- French Fries -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400" alt="French Fries">
+            <h2>🍟 French Fries</h2>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <p class="price">₹110</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'French Fries',110)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Momos -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1626776876729-bab4369a5a5a?w=400" alt="Momos">
+            <h2>🥟 Momos</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹140</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Momos',140)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Noodles -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400" alt="Noodles">
+            <h2>🍜 Noodles</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹160</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Noodles',160)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Dosa -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400" alt="Dosa">
+            <h2>🥞 Dosa</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹80</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Dosa',80)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Pasta -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400" alt="Pasta">
+            <h2>🍝 Pasta</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹180</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Pasta',180)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Tandoori Chicken -->
+<div class="food-card">
+    <span class="badge">🔥 Hot</span>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+
+    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=400"
+         alt="Tandoori Chicken">
+
+    <h2>🍗 Tandoori Chicken</h2>
+
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <p class="price">₹280</p>
+
+    <div class="quantity-box">
+        <button onclick="changeQuantity(this,-1)">-</button>
+        <span class="qty">1</span>
+        <button onclick="changeQuantity(this,1)">+</button>
+    </div>
+
+    <button onclick="addToCartWithQty(this,'Tandoori Chicken',280)">
+        🛒 Add to Cart
+    </button>
+</div>
+
+
+<!-- Grilled Chicken -->
+<div class="food-card">
+    <span class="badge">🔥 Chef Special</span>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+
+    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400"
+         alt="Grilled Chicken">
+
+    <h2>🍖 Grilled Chicken</h2>
+
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <p class="price">₹260</p>
+
+    <div class="quantity-box">
+        <button onclick="changeQuantity(this,-1)">-</button>
+        <span class="qty">1</span>
+        <button onclick="changeQuantity(this,1)">+</button>
+    </div>
+
+    <button onclick="addToCartWithQty(this,'Grilled Chicken',260)">
+        🛒 Add to Cart
+    </button>
+</div>
+
+
+<!-- Fish Fry -->
+<div class="food-card">
+    <span class="badge">🔥 Seafood</span>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400"
+         alt="Fish Fry">
+
+    <h2>🐟 Fish Fry</h2>
+
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <p class="price">₹230</p>
+
+    <div class="quantity-box">
+        <button onclick="changeQuantity(this,-1)">-</button>
+        <span class="qty">1</span>
+        <button onclick="changeQuantity(this,1)">+</button>
+    </div>
+
+    <button onclick="addToCartWithQty(this,'Fish Fry',230)">
+        🛒 Add to Cart
+    </button>
+</div>
+
+
+<!-- Veg Fried Rice -->
+<div class="food-card">
+    <span class="badge">🌱 Veg</span>
+    <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+
+    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400"
+         alt="Veg Fried Rice">
+
+    <h2>🥗 Veg Fried Rice</h2>
+
+    <div class="rating">⭐⭐⭐⭐☆</div>
+
+    <p class="price">₹170</p>
+
+    <div class="quantity-box">
+        <button onclick="changeQuantity(this,-1)">-</button>
+        <span class="qty">1</span>
+        <button onclick="changeQuantity(this,1)">+</button>
+    </div>
+
+    <button onclick="addToCartWithQty(this,'Veg Fried Rice',170)">
+        🛒 Add to Cart
+    </button>
+</div>
+
+        <!-- Paneer Butter Masala -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400" alt="Paneer Butter Masala">
+            <h2>🧀 Paneer Butter Masala</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹220</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Paneer Butter Masala',220)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- South Indian Meals -->
+        <div class="food-card">
+            <span class="badge">🔥 Popular</span>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400" alt="South Indian Meals">
+            <h2>🍽️ South Indian Meals</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹180</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'South Indian Meals',180)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Chicken 65 -->
+        <div class="food-card">
+            <span class="badge">🔥 Spicy</span>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" alt="Chicken 65">
+            <h2>🍗 Chicken 65</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹240</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Chicken 65',240)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Falooda -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400" alt="Falooda">
+            <h2>🥤 Falooda</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹130</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Falooda',130)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Chocolate Cake -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Chocolate Cake">
+            <h2>🎂 Chocolate Cake</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹220</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Chocolate Cake',220)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Ice Cream -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400" alt="Ice Cream">
+            <h2>🍨 Ice Cream</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹90</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Ice Cream',90)">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Coffee -->
+        <div class="food-card">
+            <button class="favorite-btn" onclick="toggleFavorite(this)">🤍</button>
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400" alt="Coffee">
+            <h2>☕ Coffee</h2>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <p class="price">₹70</p>
+            <div class="quantity-box">
+                <button onclick="changeQuantity(this,-1)">-</button>
+                <span class="qty">1</span>
+                <button onclick="changeQuantity(this,1)">+</button>
+            </div>
+            <button onclick="addToCartWithQty(this,'Coffee',70)">🛒 Add to Cart</button>
+        </div>
+
+    </section>
+
+    <!-- Cart -->
+    <section class="cart">
+        <h2>🛒 Your Cart</h2>
+
+        <ul id="cart-items"></ul>
+
+        <h3>Total: ₹<span id="total">0</span></h3>
+
+        <button class="order-btn" onclick="placeOrder()">
+            🎉 Place Order
+        </button>
+    </section>
+
+    <!-- Order Summary -->
+    <section class="summary">
+        <h2>🧾 Order Summary</h2>
+
+        <p><span>Items</span><span id="itemCount">0</span></p>
+        <p><span>Subtotal</span><span>₹<span id="subtotal">0</span></span></p>
+        <p><span>Delivery</span><span>₹<span id="delivery">40</span></span></p>
+
+        <hr>
+
+        <h3><span>Grand Total</span><span>₹<span id="grandTotal">0</span></span></h3>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Food Ordering Website | Designed by Akshaya</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
